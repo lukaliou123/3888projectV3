@@ -1,0 +1,97 @@
+<!doctype html>
+{% include 'layout.html' %}
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <title>Admin</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../static/css/admin.css">
+        <!-- boxicons icons -->
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <script src = "{{ url_for('static', filename='/javascript/admin.js') }}"></script>
+
+    </head>
+        <body onload="changeSection()">
+            <script src="../static/javascript/sidebar_admin.js"></script>
+                <div class="Dashboard">
+                </div>
+                <div class="Coach">
+                    <h2>Coach</h2>
+                    <table>
+                        <tr id="header">
+                            <th>Name</th>
+                            <th>Info</th>
+                            <th>Action</th>
+                        </tr>
+                        {% for row in coachInfo %}
+                        <tr id="content">
+                            <td>{{ row[3] }} {{ row[4] }}</td>
+                            <td><a href="#">Infomation</td>
+                            <form id="deleteUser" method='POST'>
+                            <input type="hidden" name="form-name" value="t"></input>
+                            <td><button class="delete">Delete</button></td>
+                            <input type="hidden" name="choosed_user" value="{{ row[0] }}"></input>
+                            </form>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <a href="/admin/addNewCoach" id="add">Add</a>
+                </div>
+
+                <div class="Client">
+                    <h2>Client</h2>
+                    <table>
+                        <tr id="header">
+                            <th>Name</th>
+                            <th>Info</th>
+                            <th>Action</th>
+                        </tr>
+                        {% for row in clientInfo %}
+                        <tr id="content">
+                            <td>{{ row[3] }} {{ row[4] }}</td>
+                            <td><a href="#">Infomation</td>
+                                <form id="deleteUser" method='POST'>
+                                    <input type="hidden" name="form-name" value="t"></input>
+                                    <td><button class="delete">Delete</button></td>
+                                    <input type="hidden" name="choosed_user" value="{{ row[0] }}"></input>
+                                </form>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <a href="/admin/addNewClient" id="add">Add</a>
+                </div>
+
+                <form id="addCoach" method='POST'>
+                <div class="addNewCoach">
+                    <legend>Add new coach</legend>
+                    <input name="firstname" type="firstname" placeholder="Firstname" required>
+                    <input name="lastname" type="lastname" placeholder="Lastname" required>
+                    <input name="email" type="email" placeholder="Email" required>
+                    <input name="age" type="age" placeholder="Age" required>
+                    <input name="username" type="username" placeholder="Username" required>
+                    <input name="password" type="password" placeholder="Password" required>
+                    <input type="submit" value="Add">
+                </div>
+                </form>
+
+                <form id="addClient" method='POST'>
+                <div class="addNewClient">
+                    <legend>Add new client</legend>
+                    <input name="firstname" type="firstname" placeholder="Firstname" required>
+                    <input name="lastname" type="lastname" placeholder="Lastname" required>
+                    <input name="email" type="email" placeholder="Email" required>
+                    <input name="username" type="username" placeholder="Username" required>
+                    <input name="password" type="password" placeholder="Password" required>
+                    <input type="submit" value="Add">
+                </div>
+                </form>
+
+
+
+                
+            </div>
+
+
+        </body>
+</html>

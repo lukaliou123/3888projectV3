@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Feedback_Coach</title>
+
+<link href="../static/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="../static/css/navigation.css">
+
+
+<style>
+
+html, body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+.background{
+width: 100%;
+height: 350vh;
+}
+.feedback-front {
+  width: 100%;
+  height: 55vh;
+  color: #FFA07A;
+  position: relative;
+  margin-top: 2%;
+  z-index: 0;
+}
+.feedback-front-context {
+  width:40%;
+  top: 11%;
+  left: 6%;
+  position: relative;
+  float: left;
+  font-size: 33px;
+}
+.picture_first {
+  position: relative;
+  float: left;
+  top: 11%;
+  left: 15%;
+}
+.section_2{
+  width: 100%;
+  height: 30vh;
+  color: #FFA07A;
+  position: relative;
+  background-color: #F5F5F5;
+}
+.current_leader{
+  max-width: 60%;
+  position: relative;
+  float: left;
+  padding-top: 5%;
+  left: 28%;
+  /* max-height: 30%; */
+  overflow: auto;
+
+}
+
+.section_3{
+  width: 100%;
+  color: #FFA07A;
+  position:relative;
+  height:100%;
+  margin-top:-15%;
+}
+.feedback_comment_title{
+  float: left;
+  width:100%;
+  margin-left: 5%;
+  margin-bottom:2%;
+}
+.feedback_comment_title h3{
+  font-size: 40px;
+  text-decoration: bold;
+  width:100%;
+
+}
+.leader_comment{
+  position:relative;
+  width: 100%;
+  height:100%;
+  margin-left:8%;
+
+}
+.outputs{
+  margin-bottom:20%;
+  width:100%;
+}
+.leader_no{
+  font-size:2em;
+  margin-top:20%;
+  margin-bottom:1%;
+}
+.feedback_output{
+  float: left;
+  height:8%;
+  width: 40%;
+  background: #F5F5F5;
+  position: absolute;
+  border-radius: 15px;
+  overflow: auto;
+  border: 1px solid #FFA07A;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  z-index:2;
+}
+.feedback_output::-webkit-scrollbar{
+  display: none;
+}
+.feedback_output h2{
+  font-size: 3vh;
+  padding: 3%;
+  margin-left:1%;
+}
+
+</style>
+</head>
+
+<body style="width: 1720px;">
+
+<div class="background" id = "background">
+<script src="../static/javascript/navigationBar.js"></script>
+
+<div class="feedback-front">
+  <div class="feedback-front-context">
+    <h1>Your feedback </h1>
+    <p style="font-size: 28px; text-align:left;">Read below to see the comment(s) from the leader(s) </p>
+  </div>
+
+  <div class="picture_first">
+    <img src="../static/image/feedback1.jpeg" alt="feedback Image" width="500px" height="340px">
+  </div>
+
+</div>
+
+
+<div class="section_2">
+
+<div class="current_leader">
+
+<h2>Your current leader(s):&nbsp
+  {% for leader in leaders %}
+  <i class="fa fa-flag">&nbsp{{leader[0]}}&nbsp&nbsp</i>
+  {% endfor %}
+</h2>
+
+</div>
+
+</div>
+
+<div class="section_3">
+
+<div class="feedback_comment_title">
+<h3>Here the leader(s)'s comments:</h3>
+
+</div>
+<div class="leader_comment">
+  {% for i in range(0,leader_len) %}
+  <div class="outputs">
+    <div class="leader_no">
+      <i class="fa fa-user">&nbsp&nbsp{{leaders[i][0]}}</i>
+    </div>
+    <div class="feedback_output">
+    <h2>feedback[i] axaxaxaxaaxaxaaxaxaaxaxaaxaxaaxaxaxa<br>
+      axaxaaxaxaaxaxaaxaxaaxaxaaxaxaaxaxaaxaxaaxaxaaxaxaaxax
+      aaxaxa</h2>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+
+
+
+
+</div>
+
+</div>
+
+
+  </body>
+</html>
